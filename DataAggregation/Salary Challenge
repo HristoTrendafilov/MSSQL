@@ -1,0 +1,4 @@
+SELECT FirstName, LastName, DepartmentID
+FROM employees AS e
+WHERE e.salary > (SELECT AVG(salary) FROM employees WHERE DepartmentID = e.DepartmentID GROUP BY DepartmentID)
+ORDER BY e.DepartmentID

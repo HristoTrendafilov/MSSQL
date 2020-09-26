@@ -1,0 +1,20 @@
+CREATE FUNCTION ufn_IsWordComprised(@setOfLetters NVARCHAR(50), @word NVARCHAR(50))
+RETURNS BIT
+AS
+BEGIN
+	DECLARE @result BIT
+	DECLARE @i INT = 1
+	
+	WHILE(@i <= LEN(@word))
+	BEGIN
+		
+		if(CHARINDEX(SUBSTRING (@word, @i, 1), @setOfLetters) > 0)
+		SET @result = 1
+		ELSE
+		RETURN 0
+		
+		SET @i +=1
+	END
+	
+	RETURN @result
+END

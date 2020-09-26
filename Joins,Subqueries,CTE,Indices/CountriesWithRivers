@@ -1,0 +1,5 @@
+SELECT TOP(5) CountryName, RiverName FROM CountriesRivers
+FULL OUTER JOIN  Countries ON Countries.CountryCode = CountriesRivers.CountryCode
+FULL OUTER JOIN  Rivers ON Rivers.Id = CountriesRivers.RiverId
+WHERE ContinentCode = 'AF'
+ORDER BY CountryName ASC

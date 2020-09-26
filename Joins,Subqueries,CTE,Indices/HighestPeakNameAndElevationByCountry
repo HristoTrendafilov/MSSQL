@@ -1,0 +1,6 @@
+SELECT c.CountryName,
+MAX(Elevation), MAX(m.MountainRange) FROM MountainsCountries AS mc
+LEFT JOIN Mountains AS m ON m.Id = mc.MountainId
+FULL OUTER JOIN Countries AS c ON c.CountryCode = mc.CountryCode
+FULL OUTER JOIN Peaks AS p ON p.MountainId = m.Id
+GROUP BY c.CountryName

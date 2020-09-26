@@ -1,0 +1,4 @@
+SELECT COUNT(c.CountryCode) FROM MountainsCountries
+FULL OUTER JOIN Mountains ON Mountains.Id = MountainsCountries.MountainId
+FULL OUTER JOIN Countries c ON c.CountryCode = MountainsCountries.CountryCode
+WHERE MountainRange IS NULL
